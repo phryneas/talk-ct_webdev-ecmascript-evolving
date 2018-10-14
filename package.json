@@ -18,5 +18,9 @@
     "raw-loader": "^0.5.1",
     "source-map-loader": "^0.2.4"
   },
-  "name": "testDeck"
+  "name": "ECMAScript-Talk",
+  "dependencies": {
+    "colors": "^1.3.2",
+    "tslint-loader": "^3.5.4"
+  }
 }

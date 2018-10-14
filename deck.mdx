@@ -5,9 +5,8 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
 export { default as theme } from './theme'
 
 <Head>
-  <title>Presentation Title Something Something</title>
+  <title>ECMAScript as an evolving language</title>
 </Head>
-
 
 
 <Image src="./assets/mayflower_segel_transparent.png" size="contain" />
@@ -26,11 +25,203 @@ export { default as theme } from './theme'
 # About me
 
 <C.ul>
-  <C.li>I am human</C.li>
-  <C.li>born after the invention of the personal computer</C.li>
-  <C.li>but before the internet became popular</C.li>
-  <C.li>to buy food and have fun, I work at <img src="./assets/mayflower_logo_transparent.png" style={{ height: '1.3em', verticalAlign: 'bottom', position: 'relative', top: '5px', left: '-5px' }} /></C.li>
+  <C.li>Lenz Weber (<em>@phry</em> on Twitter, <em>phryneas</em> everywhere else)</C.li>
+  <C.li>Developer at <img src="./assets/mayflower_logo_transparent.png" style={{ height: '1.3em', verticalAlign: 'bottom', position: 'relative', top: '5px', left: '-5px' }} /></C.li>
+  <C.li>Working in professional web development since 15 years</C.li>
+  <C.li>In love with the Web, Open Source, Linux and Security.</C.li>
 </C.ul>
+
+---
+
+# Let's get started
+
+---
+
+# ECMAScript? JavaScript!
+
+* **ECMAScript** is the specification behind JavaScript - the baseline every engine should support
+* additionally, for front-end development, the **WhatWG DOM Living Standard** describes APIs that can be used for DOM manipulation
+
+---
+
+# A short History of ECMAScript
+
+<C.ul>
+  <C.li>1997-1999, ECMAScript 1-3 were released</C.li>
+  <Appear>
+    <C.li>ECMAScript 4 "Harmony": adding classes, modules, static types, generators, iterators, destructuring etc. <br/>
+    <strong>was never released</strong>
+    </C.li>
+    <C.li>2009, ECMAScript 5: adding strict mode, getters &amp; setters, JSON handling</C.li>
+    <C.li>2015, ES6: classes, modules, iterators, for-of-loops, generators, arrow functions, promises, let-bindings etc.</C.li>
+    <C.li>2016, ES7: exponention operator, Array.prototype.includes</C.li>
+    <C.li>2017, ES8: async/await</C.li>
+    <C.li>2018, ES9: rest/spread-parameters</C.li>
+  </Appear>
+</C.ul>
+
+---
+
+# And a look at the browser
+
+(getting a real history here is almost impossible, so take these examples)
+
+* Element.querySelector() started being supported ~2009
+* Element.classList() started being supported ~2012
+* **fetch** as a unified API for XHR Requests is supported since 2015-2017 (no IE)
+
+All those things were always possible - but differed from browser to browser.
+
+---
+
+# So... 1999 to 2015...
+
+* Many features were not available cross-browser
+* Two types of libraries started surfacing, hiding the browser-specific implementations:
+* DOM manipulation (e.g. jquery, mootools), making up for missing DOM manipluation functionality
+* Utility (e.g. underscore, lodash, mootools, jquery) to provide ease-of-use where the language was lacking
+
+---
+
+# Then the Standards caught up and browsers started converging
+
+Today, you don't need those libraries any more. Modern browsers support everything we talked about.
+
+Well, except IE11. But for that, we have polyfills.
+
+---
+
+# And they lived happily every after 
+## 👸👸/🤴👸/🤴🤴 -> 🦄 -> 🌈 
+
+---
+
+# Okay, I lied
+
+You can polyfill missing functions, but you can't polyfill unsupported syntax.
+
+---
+
+# So... let's transpile.
+
+The idea behind it:
+
+* Write ES ≥ 6
+* Use a transpiler to convert it into ES5 (or even ES3)
+* If you want to get fancy: to every browser, ship a form of ECMAScript it is compatible with
+* add Polyfills for old browsers where necessary
+
+---
+
+<CodeSurfer
+  title="We write this"
+  code={require('!raw-loader!./snippets/getMovies.js')}
+  showNumbers
+/>
+
+---
+
+<CodeSurfer
+  title="And IE11 gets this"
+  code={require('!raw-loader!./snippets/getMovies.transpiled.js')}
+  showNumbers
+  steps={[
+    { range: [3, 39], notes: "a state machine" },
+    { range: [41, 69], notes: "and some glue" },
+  ]}
+/>
+
+---
+
+# So...
+
+We have found ways to use modern standards in all browsers (at some cost, but that's unavoidable)
+
+## Why should we stop here?
+
+<img src="./assets/transpile.png" />
+
+---
+
+# Languages that extend JavaScript with new syntax
+
+---
+
+<CodeSurfer
+  title="Typescript"
+  notes="Reads &amp; writes like Javascript, but has a powerful type system"
+  lang="typescript"
+  code={require("!raw-loader!./snippets/typescript.example")}
+  showNumbers
+/>
+
+---
+
+# Completely different languages
+
+---
+
+<CodeSurfer
+  title="Clojure"
+  notes="Can be run in the JVM or transpiled to JavaScript"
+  lang="clojure"
+  code={require("!raw-loader!./snippets/clojure.example")}
+  showNumbers
+/>
+
+---
+
+<CodeSurfer
+  title="Reason"
+  notes="OCaml dicalect that transpiles to JavaScript"
+  lang="reason"
+  code={require("!raw-loader!./snippets/reason.example")}
+  showNumbers
+/>
+
+---
+
+# New syntax to write JavaScript
+
+---
+
+<CodeSurfer
+  title="JSX"
+  notes="a way of writing JavaScript that looks shockingly like HTML"
+  lang="javascript"
+  code={require("!raw-loader!./snippets/jsxExample.jsx")}
+  showNumbers
+/>
+
+---
+
+<CodeSurfer
+  title="transpiles to"
+  lang="javascript"
+  code={require("!raw-loader!./snippets/jsxExample.transpiled.js")}
+  showNumbers
+/>
+
+---
+
+# JSNext
+
+We can also write Syntax that isn't even part of any standard yet!
+
+---
+
+Something something about TC39
+https://github.com/tc39/proposals
+https://github.com/tc39/ecma262/blob/master/CONTRIBUTING.md
+https://tc39.github.io/process-document/
+
+---
+
+Something motivational about evolution and collaboration
+
+---
+
+Questions
 
 ---
 
