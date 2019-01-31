@@ -7,7 +7,7 @@ export { default as theme } from "./theme";
   <title>ECMAScript as an evolving language</title>
 </Head>
 
-<Image src="./assets/title.png" size="contain" />
+# ECMAScript as an evolving language
 
 ---
 
@@ -102,6 +102,17 @@ All those things were always possible - but differed from browser to browser.
 Today, you don't need those libraries any more. Modern browsers support everything we talked about.
 
 Well, except IE11. But for that, we have polyfills. 🎆
+
+---
+
+# What is a polyfill?
+
+A polyfill detects if a browser supports a feature like `window.fetch`, and if that is missing, shims an alternative implementation **in place of the original functionality**.
+
+## Side Note: PonyFills
+
+A ponyfill acts like a polyfill, but does not inject itself in place of a missing functionality, but exports either the original implementation or a shim.  
+This is much less disruptive - **if you have the choice, prefer ponyfills to polyfills**.
 
 ---
 
@@ -278,6 +289,14 @@ We can also write Syntax that isn't even part of any standard yet!
 - You really should be learning ES6 by now
 - And then probably some TypeScript or Flow
 - Choose your own Adventure with ESNext ;)
+
+---
+
+# Are all problems solved now?
+
+## Almost.
+
+You won't be able to polyfill or transpile real "Browser" features like multithreading using WebWorkers.
 
 ---
 
