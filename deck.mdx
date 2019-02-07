@@ -69,6 +69,7 @@ export { default as theme } from "./theme";
     <C.li>2016, ES7: exponention operator, Array.prototype.includes</C.li>
     <C.li>2017, ES8: async/await</C.li>
     <C.li>2018, ES9: rest/spread-parameters</C.li>
+    <C.li>2019, ES10: (wait for it)</C.li>
   </Appear>
 </C.ul>
 
@@ -249,7 +250,7 @@ We can also write Syntax that isn't even part of any standard yet!
 
 ---
 
-# The Ecma TC39
+# The ECMA TC39
 
 - The committee that decides on new ECMAScript features
 - Accepts minor suggestions as PR/Issue on github
@@ -297,6 +298,25 @@ We can also write Syntax that isn't even part of any standard yet!
 ## Almost.
 
 You won't be able to polyfill or transpile real "Browser" features like multithreading using WebWorkers.
+
+---
+
+# Addendum
+
+<img src="assets/heise-es2019.png" />
+
+Source: heise.de
+
+---
+
+- Array\<F\>.prototype.flatMap\<T\>(callback: (elem: F, idx: number): T[]): T[]
+- Array\<F | F[]\>.prototype.~~_flatten_**smoosh**~~flat(): F[]
+- String.prototype.trimStart(): string
+- String.prototype.trimEnd(): string
+- Symbol.prototype.description: string
+- try {} catch {} without having to receive the error
+- Array.prototype.sort is now stable!
+- better handling of UTF-16 in JSON.stringify
 
 ---
 
