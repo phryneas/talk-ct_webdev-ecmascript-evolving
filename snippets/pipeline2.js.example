@@ -1,0 +1,14 @@
+function double (x) { return x + x; }
+function add (x, y) { return x + y; }
+function boundScore (min, max, score) {
+    return Math.max(min, Math.min(max, score));
+  }
+
+let person = { score: 25 };
+
+let newScore = person.score
+  |> double
+  |> add(7, ?)
+  |> boundScore(0, 100, ?);
+
+newScore //=> 57

@@ -1,0 +1,9 @@
+let result = exclaim(capitalize(doubleSay("hello")));
+result //=> "Hello, hello!"
+
+let result = "hello"
+  |> doubleSay
+  |> capitalize
+  |> exclaim;
+
+result //=> "Hello, hello!"
